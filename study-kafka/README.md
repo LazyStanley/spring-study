@@ -1,4 +1,9 @@
-# kafka
+# kafka 安装
+
+安装流程见下，生产者和消费者使用的注意事项见跳转。
+
+- [producer](doc/producer.md)
+- [consumer](doc/consumer.md)
 
 ## 安装 jdk 环境
 
@@ -109,24 +114,3 @@ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
 ```shell script
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
 ```
-
-## spring 使用 kafka 的注意事项
-
-1. 如何保证 producer 消息一定传递到，与一些相关的配置？
-2. producer 批量发送消息？
-3. consumer 避免消息因异常而被提交，导致被消费？
-4. consumer 批量消费消息？
-
-### 如何保证 producer 消息一定传递到，与一些相关的配置？
-
-依赖于 `kafka.producer.acks` 参数。kafka 的 producer 客户端如果不进行特殊设置，默认生成的 topic 是单分区单 replica 的，
-
-### producer 批量发送消息？
-
-kafka 的消息 producerRecord 会先放入到缓存与队列中，缓存到某个 size 才会发送，所以不需要特别进行批量处理。这些 kafka 客户端
-已经帮助封装好了。
-
-### consumer 避免消息因异常而被提交，导致被消费？
-
-kafka 的消息 producerRecord 会先放入到缓存与队列中，缓存到某个 size 才会发送，所以不需要特别进行批量处理。这些 kafka 客户端
-已经帮助封装好了。
