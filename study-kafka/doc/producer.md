@@ -50,3 +50,7 @@ kafka 的客户端，异步发送时，会将消息 producerRecord 先放入到�
 
 - batch-size 满了
 - linger.ms 时间限制
+
+## spring-kafka
+
+- 如果未设置 topic 的分区等信息，默认自动通知 kafka 服务端，生成一个 1 分区，1 副本的 topic；

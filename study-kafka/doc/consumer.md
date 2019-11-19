@@ -21,6 +21,8 @@
 - `enable.auto.commit` 决定是否自动提交；
 - `auto.commit.interval.ms` 决定自动提交之间的时间间隔。
 
+offset 会先记录在 listener 的线程中，当 `auto.commit.interval.ms` 到了后，再提交到 kafka 的服务端。
+
 ### 手动提交
 
 - 同步提交会阻塞；
